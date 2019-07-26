@@ -1,9 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+
+:root {
+  --fg: #100E9F;
+  --bg: #FFFFFF;
+  --serif: "Times New Roman";
+  --sans: "IBM Plex Sans";
+  --font-size: 2.5rem/2.75rem;
+  --font-base: 400 normal var(--font-size) var(--serif);
+  --font-accent: 400 normal 100%/1 var(--sans);
+}
+
 * {
   box-sizing: border-box;
 }
 
-body, html, main {
+@keyframes fadein {
+  from { 
+    transform: translate(0, -2%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+body {
+  background: linear-gradient(to left, var(--bg) 90%, var(--fg) 10%);
   margin: 0; 
   padding: 0;
-  min-height: 100vh;
+}
+
+main {
+  animation: fadein 2s; 
+  background: linear-gradient(to left, var(--fg) 90%, var(--bg) 10%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 5vh 2.5vw 0;
+}
+
+h1, h2, h3, h4, h5, h6, li, p, a {
+  font: var(--font-base);
+  letter-spacing: -0.03em;
+  word-spacing: -0.05em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-kerning: normal;
+  hyphens: auto;
+}
+
+h1 {
+  font-size: 21vw;
+  letter-spacing: -0.0625em;
+  line-height: 0.75;
+  margin: 0;
+  padding: 0;
+}
+
+h1 em {
+  font: var(--font-accent);
+}
+
+p {
+  text-indent: 2ch
+}
+
+p, li {
+  max-width: 30em;
+  font-size: 2em;
+}
+
+p::after {
+  content: "\200B";
+}
+
+sup {
+  /* line-height: 1; */
+  top: -0.1em;
+}
+
+p a,
+li a {
+  font: var(--font-accent);
+  text-decoration: underline;
+  color: inherit;
+}
+
+p a:hover,
+li a:hover {
+  background: var(--fg);
+  color: var(--bg);
+  filter: invert(1);
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+figure img:first-child {
+  width: 60%;
+}
+
+figure img:nth-child(2) {
+  width: 25%;
+  transform: translate(-25%, -11%);
+  position: relative;
+}
+
+ul, ol {
+  padding: 0;
+  counter-reset: custom;
+}
+
+ol li { 
+  counter-increment: custom;
+}
+
+ul li::before { 
+  content: "●"; 
+}
+
+ol li::before {
+  content: counter(custom)"—";
+  font: var(--font-accent);
+}
+
+@media (min-width: 600px){
+  body {
+    background: linear-gradient(to right, var(--bg) 50%, var(--fg) 50%);
+    margin: 0; padding: 0;
+  }
+
+  main {
+    background: linear-gradient(to right, var(--fg) 50%, var(--bg) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    padding: 20vh 2.5vw 0;
+  }  
 }
