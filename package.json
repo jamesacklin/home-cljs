@@ -1,0 +1,24 @@
+{
+  "name": "reframe-starter",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "",
+  "license": "",
+  "scripts": {
+    "burn": "rm -rf node_modules .shadow-cljs package-lock.json",
+    "clean": "rm -rf .shadow-cljs public/js",
+    "watch": "shadow-cljs watch app",
+    "release": "shadow-cljs release app"
+  },
+  "devDependencies": {
+    "shadow-cljs": "^2.8.41"
+  },
+  "dependencies": {
+    "create-react-class": "^15.6.3",
+    "highlight.js": "^9.15.8",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-flip-move": "^3.0.3",
+    "react-highlight.js": "^1.0.7"
+  }
+}
