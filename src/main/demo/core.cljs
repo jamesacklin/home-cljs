@@ -1,6 +1,7 @@
 (ns demo.core
   (:require [reagent.core :as reagent]
             [re-frame.core :as re-frame]
+            [stylefy.core :as stylefy]
             [demo.events :as events]
             [demo.subs :as subs]
             [demo.views :as views]
@@ -14,4 +15,5 @@
 (defn ^:export init []
   (re-frame/dispatch-sync [:initialize-db])
   (routes/app-routes re-frame/dispatch)
+  (stylefy/init)
   (mount-root))
