@@ -1,9 +1,10 @@
 (ns demo.views
-  (:require [demo.routes :as routes]
-            [demo.subs :as subs]
-            [demo.events :as e]
+  (:require [re-frame.core :as r]
             [stylefy.core :as s]
-            [re-frame.core :as re-frame]))
+            [markdown-to-hiccup.core :as m]
+            [demo.routes :as routes]
+            [demo.subs :as subs]
+            [demo.events :as evt]))
 
 (def inline-li {:display "inline"
                 :margin-left "0.5ch"})
@@ -13,7 +14,7 @@
                   :margin-bottom "1em"})
 
 (defn twirly []
-  (if @(re-frame/subscribe [::subs/twirly]) 
+  (if @(r/subscribe [::subs/twirly]) 
     [:div (s/use-style {:position "fixed"}) 
      "🌐"]))
 
@@ -35,11 +36,13 @@
     [:div
      [:h1 (s/use-style {:font-size "19vw"}) "James Acklin, "
       [:span (s/use-style {:font-size "63%"
-                           :white-space "nowrap"}) 
+                           :white-space "nowrap"})
        [:em "Designer "] "&" [:em " Developer"]]]
-     [:h2 (s/use-style {:font-size "3em"}) "Index"]
+     [:div (s/use-style {:font-size "3em"})
+      (let [hiccup (m/md->hiccup "## Index")]
+        (m/hiccup-in hiccup :html :body :h2 0))]
      [:div
-      [:button {:on-click #(re-frame/dispatch [:handler-with-http])} "dispatch http event"]]
+      [:button {:on-click #(r/dispatch [:handler-with-http])} "dispatch http event"]]
      [:p "I’m James Acklin, a digital product designer and front-end web developer focused on usability, prototyping, and distributed design systems."]
      [:p "I work full-time for Nielsen" [:sup "*"] " in Pittsburgh, PA. I’ve created digital experiences and tools on the Web for startups, large agencies, and Fortune 500 companies" [:sup "†"] " for about a decade."]
      [:p "My design practice concentrates on human-centered design methodologies and high-fidelity prototyping with an emphasis on in-browser deliverables. I have a passion for manipulating data and working with the raw material of the web." [:sup "‡"]]
@@ -51,7 +54,7 @@
        [:li (s/use-style (merge colophon-li {::s/mode {:before {:content "'†'"}}}))
         "I have worked with consumer packaged goods brands (the family of Nestlé ice cream brands, Del Monte foods, CLIF, Premier Protein), academic institutions and non-profits (The Winchester Thurston School, The Sarah Heinz House, The String Orchestra of Brooklyn), software vendors (VIA Oncology, Management Science Associates), retailers (Avalon Exchange, rue21, JOAN Boutique), restaurants (Primanti Brothers, Big Burrito), industrial and B2B concerns (HEICO Fasteners, HarbisonWalker International), and am beginning to branch out into the outdoor category (Aspire Racing/Jeremy Powers, the JAM Fund, and Dirt Rag Magazine)."]
        [:li (s/use-style (merge colophon-li {::s/mode {:before {:content "'‡'"}}}))
-        "This site is written in ClojureScript using reagent, re-frame and stylefy, compiled with shadow-cljs, and served via ▴Now. Its source is availble on GitHub. The type and background treatments are inspired by the cover art for the 2017 Ben Frost album " [:em "The Centre Cannot Hold"] ". The choice of Times New Roman is 100% intentional."]]]]}])
+        "This site is written in ClojureScript using Reagent, re-frame and stylefy, compiled with shadow-cljs, and served via ▴Now. Its source is availble on GitHub. The type and background treatments are inspired by the cover art for the 2017 Ben Frost album " [:em "The Centre Cannot Hold"] ". The choice of Times New Roman is 100% intentional."]]]]}])
 
 (defn app-view [{:keys [page-id]}]
   (case page-id
@@ -59,4 +62,4 @@
     :about [about]))
 
 (defn app-root []
-  (app-view @(re-frame/subscribe [::subs/app-view])))
+  (app-view @(r/subscribe [::subs/app-view])))
