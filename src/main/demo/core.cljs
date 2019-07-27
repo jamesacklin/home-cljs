@@ -1,6 +1,7 @@
 (ns demo.core
   (:require [reagent.core :as reagent]
             [re-frame.core :as re-frame]
+            [day8.re-frame.http-fx]
             [stylefy.core :as stylefy]
             [demo.events :as events]
             [demo.subs :as subs]

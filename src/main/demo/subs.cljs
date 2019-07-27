@@ -5,3 +5,8 @@
  ::app-view
  (fn [{:keys [page]}]
    {:page-id page}))
+
+(re-frame/reg-sub
+ ::twirly
+ (fn [{:keys [show-twirly]}]
+   show-twirly))
