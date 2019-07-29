@@ -31,6 +31,7 @@
      [:p "This is about it."]]}])
 
 (defn home []
+  (r/dispatch [:handler-with-http "/md/test.md"])
   [page-view
    {:content
     [:div
@@ -38,11 +39,6 @@
       [:span (s/use-style {:font-size "63%"
                            :white-space "nowrap"})
        [:em "Designer "] "&" [:em " Developer"]]]
-     [:div (s/use-style {:font-size "3em"})
-      (let [hiccup (m/md->hiccup "## Index")]
-        (m/hiccup-in hiccup :html :body :h2 0))]
-     [:div
-      [:button {:on-click #(r/dispatch [:handler-with-http])} "dispatch http event"]]
      [:p "I’m James Acklin, a digital product designer and front-end web developer focused on usability, prototyping, and distributed design systems."]
      [:p "I work full-time for Nielsen" [:sup "*"] " in Pittsburgh, PA. I’ve created digital experiences and tools on the Web for startups, large agencies, and Fortune 500 companies" [:sup "†"] " for about a decade."]
      [:p "My design practice concentrates on human-centered design methodologies and high-fidelity prototyping with an emphasis on in-browser deliverables. I have a passion for manipulating data and working with the raw material of the web." [:sup "‡"]]

@@ -22,12 +22,12 @@
 
 (re-frame/reg-event-fx
  :handler-with-http
- (fn [{:keys [db]} _]
+ (fn [{:keys [db]} [_ source]]
    {:db (assoc db :show-twirly true)
     :http-xhrio {:method :get
-                 :uri    "https://api.github.com/orgs/day8"
+                 :uri source
                  :timeout 8000
-                 :response-format (ajax/json-response-format {:keywords? true})
+                 :response-format (ajax/raw-response-format {:keywords? true})
                  :on-success [:good-http-result]
                  :on-failure [:bad-http-result]}}))
 
@@ -41,4 +41,5 @@
  :bad-http-result
  (fn [db [_ result]]
     ;; result is a map containing details of the failure
-   (assoc db :failure-http-result result)))
+   (assoc db :failure-http-result result
+             :show-twirly false)))
