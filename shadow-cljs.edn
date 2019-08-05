@@ -6,7 +6,8 @@
                 [secretary "1.2.3"]
                 [venantius/accountant "0.2.4"]
                 [stylefy "1.13.3"]
-                [markdown-to-hiccup "0.6.2"]]
+                [markdown-to-hiccup "0.6.2"]
+                [breaking-point "0.1.2"]]
 
  :source-paths ["src/dev" "src/main"]
 
