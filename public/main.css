@@ -76,7 +76,7 @@ p::after {
 }
 
 sup {
-  /* line-height: 1; */
+  line-height: 1;
   top: -0.1em;
 }
 
