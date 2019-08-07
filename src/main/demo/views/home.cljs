@@ -23,7 +23,7 @@
      [:p "I’m James Acklin, a digital product designer and front-end web developer focused on usability, prototyping, and distributed design systems."]
      [:p "I work full-time for Nielsen" [:sup "*"] " in Pittsburgh, PA. I’ve created digital experiences and tools on the Web for startups, large agencies, and Fortune 500 companies" [:sup "†"] " for about a decade."]
      [:p "My design practice concentrates on human-centered design methodologies and high-fidelity prototyping with an emphasis on in-browser deliverables. I have a passion for manipulating data and working with the raw material of the web." [:sup "‡"]]
-     [:p "Occasionally I conduct branding exercises, help software companies and websites with interaction design problems, and do general graphic design work on the side. Email me if you’d like to work on a project together."]
+     [:p "Occasionally I conduct branding exercises, help software companies and websites with interaction design problems, and do general graphic design work on the side. I am not currently accepting freelance engagements."]
      [:div {:id "colophon"}
       [:ul
        [:li (s/use-style (merge colophon-li {::s/mode {:before {:content "'*'"}}}))
