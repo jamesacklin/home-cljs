@@ -1,4 +1,4 @@
-(ns demo.views
+(ns demo.views.core
   (:require [re-frame.core :as r]
             [stylefy.core :as s]
             [markdown-to-hiccup.core :as m]
@@ -6,14 +6,8 @@
             [demo.subs :as subs]
             [demo.events :as evt]
             [demo.views.page :refer [page-view]]
-            [demo.views.home :refer [home]]))
-
-(defn about []
-  [page-view
-   {:content
-    [:div
-     [:h1 "About"]
-     [:p "This is about it."]]}])
+            [demo.views.home :refer [home]]
+            [demo.views.about :refer [about]]))
 
 (defn app-view [{:keys [page-id]}]
   (case page-id

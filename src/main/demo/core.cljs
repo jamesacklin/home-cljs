@@ -6,7 +6,7 @@
             [stylefy.core :as stylefy]
             [demo.events :as events]
             [demo.subs :as subs]
-            [demo.views :as views]
+            [demo.views.core :as views]
             [demo.routes :as routes]))
 
 (defn mount-root []
@@ -16,11 +16,12 @@
 
 (defn ^:export init []
   (re-frame/dispatch-sync [:initialize-db])
-  (re-frame/dispatch-sync [::bp/set-breakpoints {:breakpoints [:mobile 768
-                                                               :tablet 960
-                                                               :small-monitor 1200
-                                                               :large-monitor]
-                                           :debounce-ms 166}])
+  (re-frame/dispatch-sync 
+   [::bp/set-breakpoints {:breakpoints [:mobile 768
+                                        :tablet 960
+                                        :small-monitor 1200
+                                        :large-monitor]
+                          :debounce-ms 166}])
   (routes/app-routes re-frame/dispatch)
   (stylefy/init)
   (mount-root))
