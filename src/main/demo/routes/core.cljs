@@ -1,4 +1,4 @@
-(ns demo.routes
+(ns demo.routes.core
   (:import goog.History)
   (:require [secretary.core :as secretary :refer-macros [defroute]]
             [goog.events :as gevents]

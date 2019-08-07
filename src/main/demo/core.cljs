@@ -4,10 +4,10 @@
             [day8.re-frame.http-fx]
             [breaking-point.core :as bp]
             [stylefy.core :as stylefy]
-            [demo.events :as events]
-            [demo.subs :as subs]
+            [demo.events.core :as events]
+            [demo.subs.core :as subs]
             [demo.views.core :as views]
-            [demo.routes :as routes]))
+            [demo.routes.core :as routes]))
 
 (defn mount-root []
   (re-frame/clear-subscription-cache!)
