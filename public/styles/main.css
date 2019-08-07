@@ -1,10 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+@font-face {
+  font-family: "TNR";
+  font-display: swap;
+  src: url('/font/tnr.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "NHG";
+  font-display: swap;
+  src: url('/font/nhg.woff2') format('woff2')
+}
 
 :root {
-  --fg: #100E9F;
+  --fg: #222222;
   --bg: #FFFFFF;
-  --serif: "Times New Roman";
-  --sans: "IBM Plex Sans";
+  --serif: "TNR", "Times New Roman", "Times", serif;
+  --sans: "NHG", "Helvetica", "Helvetica Neue", "Arial", sans-serif;
   --font-size: 2.5rem/2.75rem;
   --font-base: 400 normal var(--font-size) var(--serif);
   --font-accent: 400 normal 100%/1 var(--sans);
@@ -25,6 +35,11 @@
   }
 }
 
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
 body {
   background: linear-gradient(to left, var(--bg) 90%, var(--fg) 10%);
   margin: 0; 
@@ -43,23 +58,18 @@ main {
 h1, h2, h3, h4, h5, h6, li, p, a {
   font: var(--font-base);
   letter-spacing: -0.03em;
-  word-spacing: -0.05em;
+  word-spacing: -0.025em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: subpixel-antialiased;
   font-kerning: normal;
   hyphens: auto;
 }
 
-h1 {
-  font-size: 21vw;
-  letter-spacing: -0.0625em;
-  line-height: 0.75;
-  margin: 0;
-  padding: 0;
-}
-
-h1 em {
+h1 em,
+p em {
   font: var(--font-accent);
+  font-size: 90%;
+  word-spacing: normal;
 }
 
 p {
