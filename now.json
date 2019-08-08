@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "home-cljs",
+  "builds": [
+    {
+      "src": "shadow-cljs.edn",
+      "use": "@jntn/now-shadow-cljs"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
+}

@@ -4,3 +4,4 @@ public/js/compiled/
 out/
 .vscode/
 .shadow-cljs/
+.DS_Store
