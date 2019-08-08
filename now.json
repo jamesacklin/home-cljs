@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "home-cljs",
+  "alias": ["ackl.in", "jamesacklin.com"],
   "builds": [
     {
       "src": "shadow-cljs.edn",
@@ -8,6 +9,11 @@
     }
   ],
   "routes": [
+    {
+      "src": "/about",
+      "status": 301,
+      "headers": { "Location": "/#/about" }
+    },
     {
       "src": "/(.*)",
       "dest": "/public/$1"
