@@ -69,6 +69,7 @@ h1 em,
 p em {
   font: var(--font-accent);
   font-size: 90%;
+  letter-spacing: normal;
   word-spacing: normal;
 }
 
@@ -93,6 +94,9 @@ sup {
 p a,
 li a {
   font: var(--font-accent);
+  word-spacing: normal;
+  letter-spacing: normal;
+  font-size: 95%;
   text-decoration: underline;
   color: inherit;
 }
