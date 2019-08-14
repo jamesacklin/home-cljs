@@ -5,7 +5,7 @@
   "repository": "",
   "license": "",
   "scripts": {
-    "burn": "rm -rf node_modules .shadow-cljs package-lock.json",
+    "burn": "rm -rf node_modules .shadow-cljs",
     "clean": "rm -rf .shadow-cljs public/js",
     "watch": "shadow-cljs watch app",
     "release": "shadow-cljs release app"
