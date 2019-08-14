@@ -7,11 +7,13 @@
             ; [demo.events.core :as evt]
             [demo.views.page :refer [page-view]]
             [demo.views.home :refer [home]]
+            [demo.views.work :refer [work]]
             [demo.views.about :refer [about]]))
 
 (defn app-view [{:keys [page-id]}]
   (case page-id
     :home  [home]
+    :work  [work]
     :about [about]))
 
 (defn app-root []

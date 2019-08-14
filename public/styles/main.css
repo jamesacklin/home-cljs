@@ -24,6 +24,11 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+  width: auto;
+}
+
 @keyframes fadein {
   from { 
     transform: translate(0, -2%);
@@ -53,6 +58,14 @@ main {
   -webkit-background-clip: text;
   color: transparent;
   padding: 5vh 2.5vw 0;
+}
+
+nav {
+  background: linear-gradient(to left, var(--fg) 90%, var(--bg) 10%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 0 2.5vw 0 70vw;
 }
 
 h1, h2, h3, h4, h5, h6, li, p, a {
@@ -153,6 +166,20 @@ ol li::before {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    padding: 20vh 2.5vw 0;
-  }  
+    padding: 12vh 2.5vw 0;
+  } 
+
+  nav {
+    background: linear-gradient(to right, var(--fg) 50%, var(--bg) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    padding: 0 2.5vw 0 75vw;
+  } 
+}
+
+@media (min-width: 1200px){
+  nav {
+    padding: 0 2.5vw 0 85vw;
+  }
 }

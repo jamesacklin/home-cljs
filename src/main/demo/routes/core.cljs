@@ -14,6 +14,9 @@
 (defroute about "/#/about" []
   (*dispatch* [:routes/about]))
 
+(defroute work "/#/work" []
+  (*dispatch* [:routes/work]))
+
 (defn app-routes [dispatch]
   (accountant/configure-navigation! {:nav-handler  (fn [path]
                                                      (binding [*dispatch* dispatch]

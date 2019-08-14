@@ -20,6 +20,12 @@
              (-> db
                  (assoc :page :about))))
 
+(re-frame/reg-event-db
+ :routes/work
+ (fn-traced  [db _]
+             (-> db
+                 (assoc :page :work))))
+
 (re-frame/reg-event-fx
  :handler-with-http
  (fn [{:keys [db]} [_ source]]

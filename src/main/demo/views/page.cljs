@@ -1,6 +1,7 @@
 (ns demo.views.page
   (:require [re-frame.core :as r]
             [stylefy.core :as s] 
+            [demo.routes.core :as routes]
             [demo.subs.core :as subs]))
 
 (defn twirly []
@@ -11,4 +12,8 @@
 (defn page-view [{:keys [header content]}]
   [:div
    [twirly]
+   [:nav
+    [:ol 
+     [:li [:a {:href (routes/home)} "Index"]]
+     [:li [:a {:href (routes/work)} "Work"]]]]
    [:main content]])
