@@ -4,10 +4,6 @@
             [demo.subs.core :as subs]
             [demo.views.page :refer [page-view]]))
 
-(defn work-toggle []
-  (if (true? @(r/subscribe [::subs/work-expanded])) (r/dispatch [:expand-work false])
-      (r/dispatch [:expand-work true])))
-
 (defn big-work []
   (if (true? @(r/subscribe [::subs/work-expanded]))
     {:max-width "100%"
@@ -25,5 +21,5 @@
      [:p "I’d be happy to show you what Rhiza looks like, but I’m still working on exactly how to communicate its constant user-centric evolution. Instead, here’s a folder listing of the single-player dungeon crawler that has been the past 5 years of my career. The folders are ordered by year, then month. Detailed timeline and case studies forthcoming."]
      [:div (s/use-style (merge (big-work)
                                {:transition "all 0.2s ease"})
-                        {:on-click #(work-toggle)})
+                        {:on-click #(r/dispatch [:expand-work])})
       [:img {:src "/images/dungeon.png"}]]]}])

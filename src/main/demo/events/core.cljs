@@ -27,10 +27,11 @@
                  (assoc :page :work))))
 
 (re-frame/reg-event-db
-  :expand-work
-  (fn-traced [db [_ val]]
-             (-> db
-                 (assoc :work-open val))))
+ :expand-work
+ (fn-traced [db _]
+            (let [status (-> db :work-open)]
+              (-> db
+                  (assoc :work-open (if (true? status) false true))))))
 
 (re-frame/reg-event-fx
   :handler-with-http
