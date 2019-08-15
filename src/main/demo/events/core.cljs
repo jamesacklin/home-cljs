@@ -28,9 +28,9 @@
 
 (re-frame/reg-event-db
   :expand-work
-  (fn-traced [db _]
+  (fn-traced [db [_ val]]
              (-> db
-                 (assoc :work-open true))))
+                 (assoc :work-open val))))
 
 (re-frame/reg-event-fx
   :handler-with-http
